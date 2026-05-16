@@ -1,7 +1,11 @@
+import logging
+
 from fastapi import FastAPI
 from sqlalchemy import text
 
 from app.db.session import async_session_factory
+
+logger = logging.getLogger(__name__)
 
 app = FastAPI(title="worldcupagents", version="0.1.0")
 
@@ -14,5 +18,5 @@ async def healthz() -> dict[str, object]:
             await session.execute(text("SELECT 1"))
             db_ok = True
     except Exception:
-        db_ok = False
+        logger.exception("healthz DB ping failed")
     return {"status": "ok", "db": db_ok}

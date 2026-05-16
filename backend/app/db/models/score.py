@@ -3,6 +3,7 @@ from decimal import Decimal
 from uuid import UUID
 
 from sqlalchemy import (
+    CHAR,
     CheckConstraint,
     DateTime,
     ForeignKey,
@@ -10,7 +11,6 @@ from sqlalchemy import (
     Integer,
     Numeric,
     SmallInteger,
-    String,
     func,
     text,
 )
@@ -37,7 +37,7 @@ class Score(Base):
     exact_score_pts: Mapped[int] = mapped_column(
         SmallInteger, nullable=False, server_default=text("0")
     )
-    outcome: Mapped[str] = mapped_column(String(1), nullable=False)
+    outcome: Mapped[str] = mapped_column(CHAR(1), nullable=False)
     computed_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )

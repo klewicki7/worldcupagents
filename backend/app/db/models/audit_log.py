@@ -19,6 +19,8 @@ class AuditLog(Base):
     action: Mapped[str] = mapped_column(String, nullable=False)
     target_type: Mapped[str | None] = mapped_column(String, nullable=True)
     target_id: Mapped[str | None] = mapped_column(String, nullable=True)
+    # SQLAlchemy's DeclarativeBase already exposes `metadata`; rename the Python attribute
+    # to `audit_metadata` and keep the underlying column name `metadata` per the data model.
     audit_metadata: Mapped[dict[str, Any] | None] = mapped_column(
         "metadata", JSONB, nullable=True
     )

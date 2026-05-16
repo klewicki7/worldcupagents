@@ -1,6 +1,7 @@
 services:
   db:
     image: postgres:16
+    container_name: worldcupagents-db
     environment:
       POSTGRES_DB: worldcupagents
       POSTGRES_USER: postgres

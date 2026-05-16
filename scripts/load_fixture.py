@@ -26,7 +26,7 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "backend"))
 
-from sqlalchemy import func, select  # noqa: E402
+from sqlalchemy import func, select, text  # noqa: E402
 from sqlalchemy.dialects.postgresql import insert  # noqa: E402
 
 from app.db.models import Match, Team  # noqa: E402
@@ -107,6 +107,18 @@ async def load_teams(*, dry_run: bool = False) -> dict[str, int]:
         return {"total_in_yaml": len(teams), "changed": 0}
 
     async with async_session_factory() as session:
+        # Capture row hashes before the upsert so we can report a precise "changed" count
+        # without relying on asyncpg.rowcount semantics, which are unreliable for bulk INSERTs.
+        before = {
+            row[0]: row[1:] for row in (
+                await session.execute(
+                    text(
+                        "SELECT id, fifa_code, name_en, name_es, flag_emoji, "
+                        "group_letter, confederation FROM teams"
+                    )
+                )
+            ).all()
+        }
         stmt = insert(Team).values(teams)
         excluded = stmt.excluded
         update_cols = {col: excluded[col] for col in TEAM_COLUMNS}
@@ -121,9 +133,19 @@ async def load_teams(*, dry_run: bool = False) -> dict[str, int]:
             set_=update_cols,
             where=distinct_filter,
         )
-        result = await session.execute(stmt)
+        await session.execute(stmt)
         await session.commit()
-        changed = result.rowcount or 0
+        after = {
+            row[0]: row[1:] for row in (
+                await session.execute(
+                    text(
+                        "SELECT id, fifa_code, name_en, name_es, flag_emoji, "
+                        "group_letter, confederation FROM teams"
+                    )
+                )
+            ).all()
+        }
+        changed = sum(1 for k, v in after.items() if before.get(k) != v)
         print(f"Loaded teams: {len(teams)} ({changed} changed)")
         return {"total_in_yaml": len(teams), "changed": changed}
 
@@ -148,6 +170,17 @@ async def load_matches(*, dry_run: bool = False) -> dict[str, int]:
         rows.append(row)
 
     async with async_session_factory() as session:
+        before = {
+            row[0]: tuple(row[1:]) for row in (
+                await session.execute(
+                    text(
+                        "SELECT id, stage, group_letter, home_team_id, away_team_id, "
+                        "home_placeholder, away_placeholder, kickoff_at, venue_city, "
+                        "venue_country FROM matches"
+                    )
+                )
+            ).all()
+        }
         stmt = insert(Match).values(rows)
         excluded = stmt.excluded
         update_cols = {col: excluded[col] for col in MATCH_COLUMNS}
@@ -160,9 +193,20 @@ async def load_matches(*, dry_run: bool = False) -> dict[str, int]:
             set_=update_cols,
             where=distinct_filter,
         )
-        result = await session.execute(stmt)
+        await session.execute(stmt)
         await session.commit()
-        changed = result.rowcount or 0
+        after = {
+            row[0]: tuple(row[1:]) for row in (
+                await session.execute(
+                    text(
+                        "SELECT id, stage, group_letter, home_team_id, away_team_id, "
+                        "home_placeholder, away_placeholder, kickoff_at, venue_city, "
+                        "venue_country FROM matches"
+                    )
+                )
+            ).all()
+        }
+        changed = sum(1 for k, v in after.items() if before.get(k) != v)
         print(f"Loaded matches: {len(matches)} ({changed} changed)")
         return {"total_in_yaml": len(matches), "changed": changed}
 

@@ -166,7 +166,7 @@ def upgrade() -> None:
     sa.Column('match_id', sa.Integer(), nullable=False),
     sa.Column('brier', sa.Numeric(precision=7, scale=6), nullable=False),
     sa.Column('exact_score_pts', sa.SmallInteger(), server_default=sa.text('0'), nullable=False),
-    sa.Column('outcome', sa.String(length=1), nullable=False),
+    sa.Column('outcome', sa.CHAR(length=1), nullable=False),
     sa.Column('computed_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False),
     sa.CheckConstraint("outcome IN ('H','D','A')", name=op.f('ck_scores_outcome_enum')),
     sa.ForeignKeyConstraint(['agent_id'], ['agents.id'], name=op.f('fk_scores_agent_id_agents'), ondelete='CASCADE'),

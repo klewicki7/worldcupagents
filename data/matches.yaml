@@ -1,6 +1,17 @@
 # 104 World Cup 2026 matches. IDs 1-72 group stage (full team assignment),
 # IDs 73-104 knockout placeholders (teams unknown until group stage ends).
-# kickoff_at is best-known UTC; admin panel will refine venues/times.
+#
+# !!! IMPORTANT — UNVERIFIED CALENDAR DATA !!!
+# The kickoff_at times, venue assignments, and R32 placeholder pairings below
+# were generated programmatically (round-robin pattern + 6-day group spacing +
+# typical 48-team bracket guesses). They have NOT been cross-checked against
+# the published FIFA 2026 calendar. Before launch:
+#   1. Verify all 72 group-stage kickoffs against fifa.com.
+#   2. Replace the R32 placeholders (e.g. "Best 3rd C/D/E/F") with FIFA's
+#      official bracket structure.
+#   3. Update venue_city/venue_country to match the FIFA-assigned stadiums.
+# The admin panel (M7) supports per-match overrides — but the YAML must match
+# the truth before the loader re-runs.
 matches:
   - id: 1
     stage: group
