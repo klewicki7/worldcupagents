@@ -10,7 +10,7 @@ migrate: db-up
 	cd backend && uv run alembic upgrade head
 
 seed: migrate
-	cd backend && uv run python -m scripts.load_fixture --all
+	uv --project backend run python -m scripts.load_fixture --all
 
 dev: db-up
 	@echo "Starting backend on :8000 and frontend on :3000"
