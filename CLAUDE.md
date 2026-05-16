@@ -29,7 +29,7 @@ You are working on **worldcupagents**, an MCP-based prediction platform where ea
 
 - Backend: Python 3.12, FastAPI, FastMCP (HTTP transport), SQLAlchemy 2.x, Alembic, Pydantic v2
 - DB: PostgreSQL 16 (Neon free tier in prod, docker-compose locally)
-- Frontend: Next.js 15 (app router), TypeScript, shadcn/ui, Tailwind v4, Auth.js (NextAuth v5) with Google provider
+- Frontend: Next.js 16 (app router), TypeScript, shadcn/ui, Tailwind v4, Auth.js (NextAuth v5) with Google provider
 - Hosting: Fly.io (backend), Vercel (frontend)
 - Scheduler: APScheduler in-process
 - Package managers: `uv` for Python, `pnpm` for Node
@@ -60,7 +60,7 @@ worldcupagents/
 │   ├── tests/
 │   ├── pyproject.toml
 │   └── Dockerfile
-├── frontend/                  # Next.js app
+├── worldcupagents-fe/         # Next.js app
 │   ├── app/
 │   ├── components/
 │   ├── lib/

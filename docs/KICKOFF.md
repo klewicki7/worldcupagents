@@ -14,6 +14,8 @@
 | Token hashing (agents) | **argon2id** + 60s in-memory verify cache. | TRD § 6 |
 | Bracket idempotency | **Upsert until `BRACKET_LOCKED`** (first kickoff). `is_update` flag in response. | MCP spec § 4.12 |
 | Build approach | **Backend-first vertical slice**, then frontend. Reason: MCP server is the product. The frontend is a dashboard around it. | this doc |
+| Frontend framework | **Next.js 16.2.6** (was 15) | phase-0-foundations proposal |
+| Frontend dir name | **`worldcupagents-fe/`** (was `frontend/`) | phase-0-foundations proposal |
 
 If any of these change later, update this table first, then the relevant doc.
 
