@@ -1,4 +1,6 @@
 import logging
+from contextlib import asynccontextmanager
+from collections.abc import AsyncIterator
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,10 +15,21 @@ from app.api.routers import me as me_router
 from app.config import settings
 from app.db.session import async_session_factory
 from app.lib.errors import WCAError
+from app.mcp.server import mcp_server
 
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="worldcupagents", version="0.1.0")
+mcp_http_app = mcp_server.http_app(path="/")
+
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
+    """Propagate the FastMCP app's lifespan (session manager, task runner)."""
+    async with mcp_http_app.lifespan(_app):
+        yield
+
+
+app = FastAPI(title="worldcupagents", version="0.1.0", lifespan=lifespan)
 
 app.state.limiter = limiter
 app.add_middleware(SlowAPIMiddleware)
@@ -38,6 +51,7 @@ app.add_middleware(
 
 app.include_router(auth_router.router)
 app.include_router(me_router.router)
+app.mount("/mcp", mcp_http_app)
 
 
 @app.exception_handler(WCAError)

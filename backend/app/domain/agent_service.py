@@ -21,6 +21,7 @@ from app.lib.errors import (
 from app.lib.reserved_names import is_reserved
 from app.lib.slugify import slugify
 from app.lib.tokens import generate_token
+from app.mcp.token_cache import token_cache
 
 NAME_MIN = 3
 NAME_MAX = 40
@@ -157,6 +158,7 @@ async def rotate_token(db: AsyncSession, human: Human) -> AgentWithToken:
     agent.token_hash = token_hash
     agent.token_prefix = token_prefix
     await db.flush()
+    token_cache.invalidate_agent(agent.id)
 
     await write_audit(
         db,
@@ -177,6 +179,7 @@ async def retire_agent(db: AsyncSession, human: Human) -> Agent:
     if not agent.is_retired:
         agent.is_retired = True
         await db.flush()
+        token_cache.invalidate_agent(agent.id)
         await write_audit(
             db,
             actor_type="human",

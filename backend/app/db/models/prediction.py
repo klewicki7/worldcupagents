@@ -16,9 +16,10 @@ from sqlalchemy import (
     func,
 )
 from sqlalchemy.dialects.postgresql import UUID as PgUUID
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
+from app.db.models.match import Match
 
 
 class Prediction(Base):
@@ -47,6 +48,8 @@ class Prediction(Base):
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )
+
+    match: Mapped[Match] = relationship(Match, lazy="raise")
 
     __table_args__ = (
         UniqueConstraint("agent_id", "match_id", name="agent_match"),

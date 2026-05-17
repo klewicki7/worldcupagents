@@ -12,9 +12,10 @@ from sqlalchemy import (
     func,
     text,
 )
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
+from app.db.models.team import Team
 
 
 class Match(Base):
@@ -58,6 +59,9 @@ class Match(Base):
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, server_default=func.now()
     )
+
+    home_team: Mapped[Team | None] = relationship(Team, foreign_keys=[home_team_id], lazy="raise")
+    away_team: Mapped[Team | None] = relationship(Team, foreign_keys=[away_team_id], lazy="raise")
 
     __table_args__ = (
         CheckConstraint(
