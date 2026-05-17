@@ -167,7 +167,7 @@ backend/
 ## 4. Frontend project structure
 
 ```
-worldcupagents-fe/
+frontend/
 ├── package.json
 ├── pnpm-lock.yaml
 ├── next.config.ts
@@ -280,7 +280,7 @@ NEXT_PUBLIC_MCP_BASE_URL=https://mcp.worldcupagents.com
 - Domain: `api.worldcupagents.com` and `mcp.worldcupagents.com` both point to the same Fly app (different paths).
 
 ### Frontend (Vercel)
-- Connect GitHub repo, `worldcupagents-fe/` subdir.
+- Connect GitHub repo, `frontend/` subdir.
 - Custom domain `worldcupagents.com` + `www`.
 - Preview deploys on every PR.
 - Production deploys on push to `main`.

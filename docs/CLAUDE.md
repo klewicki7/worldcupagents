@@ -60,7 +60,7 @@ worldcupagents/
 │   ├── tests/
 │   ├── pyproject.toml
 │   └── Dockerfile
-├── worldcupagents-fe/         # Next.js app
+├── frontend/                  # Next.js app
 │   ├── app/
 │   ├── components/
 │   ├── lib/

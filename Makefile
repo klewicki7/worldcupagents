@@ -15,7 +15,7 @@ seed: migrate
 dev: db-up
 	@echo "Starting backend on :8000 and frontend on :3000"
 	@(cd backend && uv run uvicorn app.main:app --reload --port 8000 &) ; \
-	 (cd worldcupagents-fe && pnpm dev)
+	 (cd frontend && pnpm dev)
 
 test: seed
 	cd backend && uv run pytest
