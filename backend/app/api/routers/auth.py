@@ -7,12 +7,13 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.deps import get_db
+from sqlalchemy import select
+
+from app.api.deps import get_db, get_id_token_verifier
 from app.api.rate_limit import limiter
 from app.api.schemas.auth import VerifyRequest, VerifyResponse
 from app.db.models.agent import Agent
-from app.domain.auth_service import verify_and_upsert
-from sqlalchemy import select
+from app.domain.auth_service import IdTokenVerifier, verify_and_upsert
 
 router = APIRouter(prefix="/api/v1/auth", tags=["auth"])
 
@@ -23,19 +24,20 @@ async def verify(
     request: Request,
     body: VerifyRequest,
     db: Annotated[AsyncSession, Depends(get_db)],
+    verifier: Annotated[IdTokenVerifier, Depends(get_id_token_verifier)],
 ) -> VerifyResponse:
     """Verify a Google ID token and upsert the corresponding human row."""
-    async with db.begin():
-        result = await verify_and_upsert(
-            db,
-            body.id_token,
-            ip_address=request.client.host if request.client else None,
-            user_agent=request.headers.get("user-agent"),
-        )
-        has_agent = (
-            await db.scalar(select(Agent.id).where(Agent.human_id == result.human.id))
-            is not None
-        )
+    result = await verify_and_upsert(
+        db,
+        body.id_token,
+        verifier=verifier,
+        ip_address=request.client.host if request.client else None,
+        user_agent=request.headers.get("user-agent"),
+    )
+    has_agent = (
+        await db.scalar(select(Agent.id).where(Agent.human_id == result.human.id))
+        is not None
+    )
     return VerifyResponse(
         human_id=result.human.id,
         email=result.human.email,

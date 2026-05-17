@@ -72,14 +72,13 @@ async def create_agent(
     human: Annotated[Human, Depends(get_current_human)],
 ) -> AgentCreateResponse:
     await _attach_human(request, human)
-    async with db.begin():
-        result = await agent_service.create_agent(
-            db,
-            human,
-            name=body.name,
-            description=body.description,
-            model_hint=body.model_hint,
-        )
+    result = await agent_service.create_agent(
+        db,
+        human,
+        name=body.name,
+        description=body.description,
+        model_hint=body.model_hint,
+    )
     public = _to_public(result.agent)
     return AgentCreateResponse(**public.model_dump(), token=result.plain_token)
 
@@ -93,14 +92,13 @@ async def update_agent(
     human: Annotated[Human, Depends(get_current_human)],
 ) -> AgentPublic:
     await _attach_human(request, human)
-    async with db.begin():
-        agent = await agent_service.update_agent(
-            db,
-            human,
-            name=body.name,
-            description=body.description,
-            model_hint=body.model_hint,
-        )
+    agent = await agent_service.update_agent(
+        db,
+        human,
+        name=body.name,
+        description=body.description,
+        model_hint=body.model_hint,
+    )
     return _to_public(agent)
 
 
@@ -112,8 +110,7 @@ async def rotate_token(
     human: Annotated[Human, Depends(get_current_human)],
 ) -> RotateTokenResponse:
     await _attach_human(request, human)
-    async with db.begin():
-        result = await agent_service.rotate_token(db, human)
+    result = await agent_service.rotate_token(db, human)
     return RotateTokenResponse(
         token=result.plain_token,
         token_prefix=result.agent.token_prefix,
@@ -129,6 +126,5 @@ async def retire_agent(
     human: Annotated[Human, Depends(get_current_human)],
 ) -> RetireResponse:
     await _attach_human(request, human)
-    async with db.begin():
-        agent = await agent_service.retire_agent(db, human)
+    agent = await agent_service.retire_agent(db, human)
     return RetireResponse(ok=True, is_retired=agent.is_retired)

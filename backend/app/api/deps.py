@@ -14,12 +14,29 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.config import settings
 from app.db.models.human import Human
 from app.db.session import async_session_factory
+from app.domain.auth_service import IdTokenVerifier, google_verifier
 from app.lib.errors import ForbiddenError, UnauthenticatedError
 
 
+def get_id_token_verifier() -> IdTokenVerifier:
+    """Indirection so tests can override the Google call via app.dependency_overrides."""
+    return google_verifier
+
+
 async def get_db() -> AsyncGenerator[AsyncSession, None]:
+    """Per-request session. Commits on clean exit, rolls back on exception.
+
+    Routes write through the session directly; they should NOT call `db.begin()`
+    (SQLAlchemy 2.x autobegins on first I/O — opening a nested context errors out).
+    """
     async with async_session_factory() as session:
-        yield session
+        try:
+            yield session
+        except Exception:
+            await session.rollback()
+            raise
+        else:
+            await session.commit()
 
 
 def _extract_token(

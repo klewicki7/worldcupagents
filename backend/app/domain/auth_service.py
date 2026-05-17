@@ -27,8 +27,11 @@ class IdTokenVerifier(Protocol):
     def __call__(self, token: str, client_id: str) -> dict[str, Any]: ...
 
 
-def _default_verifier(token: str, client_id: str) -> dict[str, Any]:
-    # `verify_oauth2_token` raises ValueError on any signature/audience/expiry mismatch.
+def google_verifier(token: str, client_id: str) -> dict[str, Any]:
+    """Default verifier: hits Google to validate the token.
+
+    `verify_oauth2_token` raises ValueError on any signature/audience/expiry mismatch.
+    """
     return google_id_token.verify_oauth2_token(  # type: ignore[no-any-return]
         token, google_requests.Request(), client_id
     )
@@ -44,7 +47,7 @@ async def verify_and_upsert(
     db: AsyncSession,
     id_token: str,
     *,
-    verifier: IdTokenVerifier = _default_verifier,
+    verifier: IdTokenVerifier,
     ip_address: str | None = None,
     user_agent: str | None = None,
 ) -> VerifyResult:
