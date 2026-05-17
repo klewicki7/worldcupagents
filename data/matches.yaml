@@ -1,0 +1,1152 @@
+# 104 FIFA World Cup 2026 matches. IDs 1-72 group stage (full team assignment),
+# IDs 73-104 knockout placeholders (teams TBD until group stage ends).
+#
+# Source: en.wikipedia.org/wiki/2026_FIFA_World_Cup and
+# en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage (extracted 2026-05-16).
+# Kickoff times are converted to UTC from the local kickoff + venue UTC offset
+# published on Wikipedia. If a kickoff or venue is amended by FIFA, update this
+# file and re-run scripts/load_fixture.py --all (it will idempotently apply diffs).
+matches:
+  - id: 1
+    stage: group
+    group_letter: A
+    home_team_id: 1
+    away_team_id: 2
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-11T19:00:00Z"
+    venue_city: "Mexico City"
+    venue_country: "MX"
+
+  - id: 2
+    stage: group
+    group_letter: A
+    home_team_id: 3
+    away_team_id: 4
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-12T02:00:00Z"
+    venue_city: "Zapopan"
+    venue_country: "MX"
+
+  - id: 25
+    stage: group
+    group_letter: A
+    home_team_id: 4
+    away_team_id: 2
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-18T16:00:00Z"
+    venue_city: "Atlanta"
+    venue_country: "US"
+
+  - id: 28
+    stage: group
+    group_letter: A
+    home_team_id: 1
+    away_team_id: 3
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-19T01:00:00Z"
+    venue_city: "Zapopan"
+    venue_country: "MX"
+
+  - id: 53
+    stage: group
+    group_letter: A
+    home_team_id: 4
+    away_team_id: 1
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-25T01:00:00Z"
+    venue_city: "Mexico City"
+    venue_country: "MX"
+
+  - id: 54
+    stage: group
+    group_letter: A
+    home_team_id: 2
+    away_team_id: 3
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-25T01:00:00Z"
+    venue_city: "Guadalupe"
+    venue_country: "MX"
+
+  - id: 3
+    stage: group
+    group_letter: B
+    home_team_id: 5
+    away_team_id: 8
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-12T19:00:00Z"
+    venue_city: "Toronto"
+    venue_country: "CA"
+
+  - id: 8
+    stage: group
+    group_letter: B
+    home_team_id: 7
+    away_team_id: 6
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-13T19:00:00Z"
+    venue_city: "Santa Clara"
+    venue_country: "US"
+
+  - id: 26
+    stage: group
+    group_letter: B
+    home_team_id: 6
+    away_team_id: 8
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-18T19:00:00Z"
+    venue_city: "Inglewood"
+    venue_country: "US"
+
+  - id: 27
+    stage: group
+    group_letter: B
+    home_team_id: 5
+    away_team_id: 7
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-18T22:00:00Z"
+    venue_city: "Vancouver"
+    venue_country: "CA"
+
+  - id: 51
+    stage: group
+    group_letter: B
+    home_team_id: 6
+    away_team_id: 5
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-24T19:00:00Z"
+    venue_city: "Vancouver"
+    venue_country: "CA"
+
+  - id: 52
+    stage: group
+    group_letter: B
+    home_team_id: 8
+    away_team_id: 7
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-24T19:00:00Z"
+    venue_city: "Seattle"
+    venue_country: "US"
+
+  - id: 5
+    stage: group
+    group_letter: C
+    home_team_id: 11
+    away_team_id: 12
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-14T01:00:00Z"
+    venue_city: "Foxborough"
+    venue_country: "US"
+
+  - id: 7
+    stage: group
+    group_letter: C
+    home_team_id: 9
+    away_team_id: 10
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-13T22:00:00Z"
+    venue_city: "East Rutherford"
+    venue_country: "US"
+
+  - id: 29
+    stage: group
+    group_letter: C
+    home_team_id: 9
+    away_team_id: 11
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-20T00:30:00Z"
+    venue_city: "Philadelphia"
+    venue_country: "US"
+
+  - id: 30
+    stage: group
+    group_letter: C
+    home_team_id: 12
+    away_team_id: 10
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-19T22:00:00Z"
+    venue_city: "Foxborough"
+    venue_country: "US"
+
+  - id: 49
+    stage: group
+    group_letter: C
+    home_team_id: 12
+    away_team_id: 9
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-24T22:00:00Z"
+    venue_city: "Miami Gardens"
+    venue_country: "US"
+
+  - id: 50
+    stage: group
+    group_letter: C
+    home_team_id: 10
+    away_team_id: 11
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-24T22:00:00Z"
+    venue_city: "Atlanta"
+    venue_country: "US"
+
+  - id: 4
+    stage: group
+    group_letter: D
+    home_team_id: 13
+    away_team_id: 14
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-13T01:00:00Z"
+    venue_city: "Inglewood"
+    venue_country: "US"
+
+  - id: 6
+    stage: group
+    group_letter: D
+    home_team_id: 15
+    away_team_id: 16
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-14T04:00:00Z"
+    venue_city: "Vancouver"
+    venue_country: "CA"
+
+  - id: 31
+    stage: group
+    group_letter: D
+    home_team_id: 16
+    away_team_id: 14
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-20T03:00:00Z"
+    venue_city: "Santa Clara"
+    venue_country: "US"
+
+  - id: 32
+    stage: group
+    group_letter: D
+    home_team_id: 13
+    away_team_id: 15
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-19T19:00:00Z"
+    venue_city: "Seattle"
+    venue_country: "US"
+
+  - id: 59
+    stage: group
+    group_letter: D
+    home_team_id: 16
+    away_team_id: 13
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-26T02:00:00Z"
+    venue_city: "Inglewood"
+    venue_country: "US"
+
+  - id: 60
+    stage: group
+    group_letter: D
+    home_team_id: 14
+    away_team_id: 15
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-26T02:00:00Z"
+    venue_city: "Santa Clara"
+    venue_country: "US"
+
+  - id: 9
+    stage: group
+    group_letter: E
+    home_team_id: 19
+    away_team_id: 18
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-14T23:00:00Z"
+    venue_city: "Philadelphia"
+    venue_country: "US"
+
+  - id: 10
+    stage: group
+    group_letter: E
+    home_team_id: 17
+    away_team_id: 20
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-14T17:00:00Z"
+    venue_city: "Houston"
+    venue_country: "US"
+
+  - id: 33
+    stage: group
+    group_letter: E
+    home_team_id: 17
+    away_team_id: 19
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-20T20:00:00Z"
+    venue_city: "Toronto"
+    venue_country: "CA"
+
+  - id: 34
+    stage: group
+    group_letter: E
+    home_team_id: 18
+    away_team_id: 20
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-21T00:00:00Z"
+    venue_city: "Kansas City"
+    venue_country: "US"
+
+  - id: 55
+    stage: group
+    group_letter: E
+    home_team_id: 20
+    away_team_id: 19
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-25T20:00:00Z"
+    venue_city: "Philadelphia"
+    venue_country: "US"
+
+  - id: 56
+    stage: group
+    group_letter: E
+    home_team_id: 18
+    away_team_id: 17
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-25T20:00:00Z"
+    venue_city: "East Rutherford"
+    venue_country: "US"
+
+  - id: 11
+    stage: group
+    group_letter: F
+    home_team_id: 21
+    away_team_id: 22
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-14T20:00:00Z"
+    venue_city: "Arlington"
+    venue_country: "US"
+
+  - id: 12
+    stage: group
+    group_letter: F
+    home_team_id: 24
+    away_team_id: 23
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-15T02:00:00Z"
+    venue_city: "Guadalupe"
+    venue_country: "MX"
+
+  - id: 35
+    stage: group
+    group_letter: F
+    home_team_id: 21
+    away_team_id: 24
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-20T17:00:00Z"
+    venue_city: "Houston"
+    venue_country: "US"
+
+  - id: 36
+    stage: group
+    group_letter: F
+    home_team_id: 23
+    away_team_id: 22
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-21T04:00:00Z"
+    venue_city: "Guadalupe"
+    venue_country: "MX"
+
+  - id: 57
+    stage: group
+    group_letter: F
+    home_team_id: 22
+    away_team_id: 24
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-25T23:00:00Z"
+    venue_city: "Arlington"
+    venue_country: "US"
+
+  - id: 58
+    stage: group
+    group_letter: F
+    home_team_id: 23
+    away_team_id: 21
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-25T23:00:00Z"
+    venue_city: "Kansas City"
+    venue_country: "US"
+
+  - id: 15
+    stage: group
+    group_letter: G
+    home_team_id: 27
+    away_team_id: 28
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-16T01:00:00Z"
+    venue_city: "Inglewood"
+    venue_country: "US"
+
+  - id: 16
+    stage: group
+    group_letter: G
+    home_team_id: 25
+    away_team_id: 26
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-15T19:00:00Z"
+    venue_city: "Seattle"
+    venue_country: "US"
+
+  - id: 39
+    stage: group
+    group_letter: G
+    home_team_id: 25
+    away_team_id: 27
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-21T19:00:00Z"
+    venue_city: "Inglewood"
+    venue_country: "US"
+
+  - id: 40
+    stage: group
+    group_letter: G
+    home_team_id: 28
+    away_team_id: 26
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-22T01:00:00Z"
+    venue_city: "Vancouver"
+    venue_country: "CA"
+
+  - id: 63
+    stage: group
+    group_letter: G
+    home_team_id: 26
+    away_team_id: 27
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-27T03:00:00Z"
+    venue_city: "Seattle"
+    venue_country: "US"
+
+  - id: 64
+    stage: group
+    group_letter: G
+    home_team_id: 28
+    away_team_id: 25
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-27T03:00:00Z"
+    venue_city: "Vancouver"
+    venue_country: "CA"
+
+  - id: 13
+    stage: group
+    group_letter: H
+    home_team_id: 31
+    away_team_id: 30
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-15T22:00:00Z"
+    venue_city: "Miami Gardens"
+    venue_country: "US"
+
+  - id: 14
+    stage: group
+    group_letter: H
+    home_team_id: 29
+    away_team_id: 32
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-15T16:00:00Z"
+    venue_city: "Atlanta"
+    venue_country: "US"
+
+  - id: 37
+    stage: group
+    group_letter: H
+    home_team_id: 30
+    away_team_id: 32
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-21T22:00:00Z"
+    venue_city: "Miami Gardens"
+    venue_country: "US"
+
+  - id: 38
+    stage: group
+    group_letter: H
+    home_team_id: 29
+    away_team_id: 31
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-21T16:00:00Z"
+    venue_city: "Atlanta"
+    venue_country: "US"
+
+  - id: 65
+    stage: group
+    group_letter: H
+    home_team_id: 32
+    away_team_id: 31
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-27T00:00:00Z"
+    venue_city: "Houston"
+    venue_country: "US"
+
+  - id: 66
+    stage: group
+    group_letter: H
+    home_team_id: 30
+    away_team_id: 29
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-27T00:00:00Z"
+    venue_city: "Zapopan"
+    venue_country: "MX"
+
+  - id: 17
+    stage: group
+    group_letter: I
+    home_team_id: 33
+    away_team_id: 34
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-16T19:00:00Z"
+    venue_city: "East Rutherford"
+    venue_country: "US"
+
+  - id: 18
+    stage: group
+    group_letter: I
+    home_team_id: 36
+    away_team_id: 35
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-16T22:00:00Z"
+    venue_city: "Foxborough"
+    venue_country: "US"
+
+  - id: 41
+    stage: group
+    group_letter: I
+    home_team_id: 35
+    away_team_id: 34
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-23T00:00:00Z"
+    venue_city: "East Rutherford"
+    venue_country: "US"
+
+  - id: 42
+    stage: group
+    group_letter: I
+    home_team_id: 33
+    away_team_id: 36
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-22T21:00:00Z"
+    venue_city: "Philadelphia"
+    venue_country: "US"
+
+  - id: 61
+    stage: group
+    group_letter: I
+    home_team_id: 35
+    away_team_id: 33
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-26T19:00:00Z"
+    venue_city: "Foxborough"
+    venue_country: "US"
+
+  - id: 62
+    stage: group
+    group_letter: I
+    home_team_id: 34
+    away_team_id: 36
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-26T19:00:00Z"
+    venue_city: "Toronto"
+    venue_country: "CA"
+
+  - id: 19
+    stage: group
+    group_letter: J
+    home_team_id: 37
+    away_team_id: 38
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-17T01:00:00Z"
+    venue_city: "Kansas City"
+    venue_country: "US"
+
+  - id: 20
+    stage: group
+    group_letter: J
+    home_team_id: 39
+    away_team_id: 40
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-17T04:00:00Z"
+    venue_city: "Santa Clara"
+    venue_country: "US"
+
+  - id: 43
+    stage: group
+    group_letter: J
+    home_team_id: 37
+    away_team_id: 39
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-22T17:00:00Z"
+    venue_city: "Arlington"
+    venue_country: "US"
+
+  - id: 44
+    stage: group
+    group_letter: J
+    home_team_id: 40
+    away_team_id: 38
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-23T03:00:00Z"
+    venue_city: "Santa Clara"
+    venue_country: "US"
+
+  - id: 69
+    stage: group
+    group_letter: J
+    home_team_id: 38
+    away_team_id: 39
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-28T02:00:00Z"
+    venue_city: "Kansas City"
+    venue_country: "US"
+
+  - id: 70
+    stage: group
+    group_letter: J
+    home_team_id: 40
+    away_team_id: 37
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-28T02:00:00Z"
+    venue_city: "Arlington"
+    venue_country: "US"
+
+  - id: 23
+    stage: group
+    group_letter: K
+    home_team_id: 41
+    away_team_id: 44
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-17T17:00:00Z"
+    venue_city: "Houston"
+    venue_country: "US"
+
+  - id: 24
+    stage: group
+    group_letter: K
+    home_team_id: 43
+    away_team_id: 42
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-18T02:00:00Z"
+    venue_city: "Mexico City"
+    venue_country: "MX"
+
+  - id: 47
+    stage: group
+    group_letter: K
+    home_team_id: 41
+    away_team_id: 43
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-23T17:00:00Z"
+    venue_city: "Houston"
+    venue_country: "US"
+
+  - id: 48
+    stage: group
+    group_letter: K
+    home_team_id: 42
+    away_team_id: 44
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-24T02:00:00Z"
+    venue_city: "Zapopan"
+    venue_country: "MX"
+
+  - id: 71
+    stage: group
+    group_letter: K
+    home_team_id: 42
+    away_team_id: 41
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-27T23:30:00Z"
+    venue_city: "Miami Gardens"
+    venue_country: "US"
+
+  - id: 72
+    stage: group
+    group_letter: K
+    home_team_id: 44
+    away_team_id: 43
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-27T23:30:00Z"
+    venue_city: "Atlanta"
+    venue_country: "US"
+
+  - id: 21
+    stage: group
+    group_letter: L
+    home_team_id: 48
+    away_team_id: 47
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-17T23:00:00Z"
+    venue_city: "Toronto"
+    venue_country: "CA"
+
+  - id: 22
+    stage: group
+    group_letter: L
+    home_team_id: 45
+    away_team_id: 46
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-17T20:00:00Z"
+    venue_city: "Arlington"
+    venue_country: "US"
+
+  - id: 45
+    stage: group
+    group_letter: L
+    home_team_id: 45
+    away_team_id: 48
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-23T20:00:00Z"
+    venue_city: "Foxborough"
+    venue_country: "US"
+
+  - id: 46
+    stage: group
+    group_letter: L
+    home_team_id: 47
+    away_team_id: 46
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-23T23:00:00Z"
+    venue_city: "Toronto"
+    venue_country: "CA"
+
+  - id: 67
+    stage: group
+    group_letter: L
+    home_team_id: 47
+    away_team_id: 45
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-27T21:00:00Z"
+    venue_city: "East Rutherford"
+    venue_country: "US"
+
+  - id: 68
+    stage: group
+    group_letter: L
+    home_team_id: 46
+    away_team_id: 48
+    home_placeholder: null
+    away_placeholder: null
+    kickoff_at: "2026-06-27T21:00:00Z"
+    venue_city: "Philadelphia"
+    venue_country: "US"
+
+  - id: 73
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Runner-up Group A"
+    away_placeholder: "Runner-up Group B"
+    kickoff_at: "2026-06-28T19:00:00Z"
+    venue_city: "Inglewood"
+    venue_country: "US"
+
+  - id: 74
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group E"
+    away_placeholder: "Best 3rd Group A/B/C/D/F"
+    kickoff_at: "2026-06-29T20:30:00Z"
+    venue_city: "Foxborough"
+    venue_country: "US"
+
+  - id: 75
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group F"
+    away_placeholder: "Runner-up Group C"
+    kickoff_at: "2026-06-30T01:00:00Z"
+    venue_city: "Guadalupe"
+    venue_country: "MX"
+
+  - id: 76
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group C"
+    away_placeholder: "Runner-up Group F"
+    kickoff_at: "2026-06-29T17:00:00Z"
+    venue_city: "Houston"
+    venue_country: "US"
+
+  - id: 77
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group I"
+    away_placeholder: "Best 3rd Group C/D/F/G/H"
+    kickoff_at: "2026-06-30T21:00:00Z"
+    venue_city: "East Rutherford"
+    venue_country: "US"
+
+  - id: 78
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Runner-up Group E"
+    away_placeholder: "Runner-up Group I"
+    kickoff_at: "2026-06-30T17:00:00Z"
+    venue_city: "Arlington"
+    venue_country: "US"
+
+  - id: 79
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group A"
+    away_placeholder: "Best 3rd Group C/E/F/H/I"
+    kickoff_at: "2026-07-01T01:00:00Z"
+    venue_city: "Mexico City"
+    venue_country: "MX"
+
+  - id: 80
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group L"
+    away_placeholder: "Best 3rd Group E/H/I/J/K"
+    kickoff_at: "2026-07-01T16:00:00Z"
+    venue_city: "Atlanta"
+    venue_country: "US"
+
+  - id: 81
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group D"
+    away_placeholder: "Best 3rd Group B/E/F/I/J"
+    kickoff_at: "2026-07-02T00:00:00Z"
+    venue_city: "Santa Clara"
+    venue_country: "US"
+
+  - id: 82
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group G"
+    away_placeholder: "Best 3rd Group A/E/H/I/J"
+    kickoff_at: "2026-07-01T20:00:00Z"
+    venue_city: "Seattle"
+    venue_country: "US"
+
+  - id: 83
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Runner-up Group K"
+    away_placeholder: "Runner-up Group L"
+    kickoff_at: "2026-07-02T23:00:00Z"
+    venue_city: "Toronto"
+    venue_country: "CA"
+
+  - id: 84
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group H"
+    away_placeholder: "Runner-up Group J"
+    kickoff_at: "2026-07-02T19:00:00Z"
+    venue_city: "Inglewood"
+    venue_country: "US"
+
+  - id: 85
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group B"
+    away_placeholder: "Best 3rd Group E/F/G/I/J"
+    kickoff_at: "2026-07-03T03:00:00Z"
+    venue_city: "Vancouver"
+    venue_country: "CA"
+
+  - id: 86
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group J"
+    away_placeholder: "Runner-up Group H"
+    kickoff_at: "2026-07-03T22:00:00Z"
+    venue_city: "Miami Gardens"
+    venue_country: "US"
+
+  - id: 87
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner Group K"
+    away_placeholder: "Best 3rd Group D/E/I/J/L"
+    kickoff_at: "2026-07-04T01:30:00Z"
+    venue_city: "Kansas City"
+    venue_country: "US"
+
+  - id: 88
+    stage: r32
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Runner-up Group D"
+    away_placeholder: "Runner-up Group G"
+    kickoff_at: "2026-07-03T18:00:00Z"
+    venue_city: "Arlington"
+    venue_country: "US"
+
+  - id: 89
+    stage: r16
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M74"
+    away_placeholder: "Winner M77"
+    kickoff_at: "2026-07-04T21:00:00Z"
+    venue_city: "Philadelphia"
+    venue_country: "US"
+
+  - id: 90
+    stage: r16
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M73"
+    away_placeholder: "Winner M75"
+    kickoff_at: "2026-07-04T17:00:00Z"
+    venue_city: "Houston"
+    venue_country: "US"
+
+  - id: 91
+    stage: r16
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M76"
+    away_placeholder: "Winner M78"
+    kickoff_at: "2026-07-05T20:00:00Z"
+    venue_city: "East Rutherford"
+    venue_country: "US"
+
+  - id: 92
+    stage: r16
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M79"
+    away_placeholder: "Winner M80"
+    kickoff_at: "2026-07-06T00:00:00Z"
+    venue_city: "Mexico City"
+    venue_country: "MX"
+
+  - id: 93
+    stage: r16
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M83"
+    away_placeholder: "Winner M84"
+    kickoff_at: "2026-07-06T19:00:00Z"
+    venue_city: "Arlington"
+    venue_country: "US"
+
+  - id: 94
+    stage: r16
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M81"
+    away_placeholder: "Winner M82"
+    kickoff_at: "2026-07-07T00:00:00Z"
+    venue_city: "Seattle"
+    venue_country: "US"
+
+  - id: 95
+    stage: r16
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M86"
+    away_placeholder: "Winner M88"
+    kickoff_at: "2026-07-07T16:00:00Z"
+    venue_city: "Atlanta"
+    venue_country: "US"
+
+  - id: 96
+    stage: r16
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M85"
+    away_placeholder: "Winner M87"
+    kickoff_at: "2026-07-07T20:00:00Z"
+    venue_city: "Vancouver"
+    venue_country: "CA"
+
+  - id: 97
+    stage: qf
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M89"
+    away_placeholder: "Winner M90"
+    kickoff_at: "2026-07-09T20:00:00Z"
+    venue_city: "Foxborough"
+    venue_country: "US"
+
+  - id: 98
+    stage: qf
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M93"
+    away_placeholder: "Winner M94"
+    kickoff_at: "2026-07-10T19:00:00Z"
+    venue_city: "Inglewood"
+    venue_country: "US"
+
+  - id: 99
+    stage: qf
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M91"
+    away_placeholder: "Winner M92"
+    kickoff_at: "2026-07-11T21:00:00Z"
+    venue_city: "Miami Gardens"
+    venue_country: "US"
+
+  - id: 100
+    stage: qf
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M95"
+    away_placeholder: "Winner M96"
+    kickoff_at: "2026-07-12T01:00:00Z"
+    venue_city: "Kansas City"
+    venue_country: "US"
+
+  - id: 101
+    stage: sf
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M97"
+    away_placeholder: "Winner M98"
+    kickoff_at: "2026-07-14T19:00:00Z"
+    venue_city: "Arlington"
+    venue_country: "US"
+
+  - id: 102
+    stage: sf
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M99"
+    away_placeholder: "Winner M100"
+    kickoff_at: "2026-07-15T19:00:00Z"
+    venue_city: "Atlanta"
+    venue_country: "US"
+
+  - id: 103
+    stage: third
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Loser M101"
+    away_placeholder: "Loser M102"
+    kickoff_at: "2026-07-18T21:00:00Z"
+    venue_city: "Miami Gardens"
+    venue_country: "US"
+
+  - id: 104
+    stage: final
+    group_letter: null
+    home_team_id: null
+    away_team_id: null
+    home_placeholder: "Winner M101"
+    away_placeholder: "Winner M102"
+    kickoff_at: "2026-07-19T19:00:00Z"
+    venue_city: "East Rutherford"
+    venue_country: "US"

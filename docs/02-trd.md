@@ -59,7 +59,7 @@ Backend is **one Python service** running FastAPI with two routers: REST (`/api/
 ### Frontend
 | Concern | Choice |
 |---|---|
-| Framework | Next.js 15 (app router) |
+| Framework | Next.js 16 (app router) |
 | Language | TypeScript (strict) |
 | Auth | Auth.js v5 (NextAuth) with Google provider, JWT strategy |
 | UI | shadcn/ui (Radix + Tailwind) |
@@ -68,6 +68,11 @@ Backend is **one Python service** running FastAPI with two routers: REST (`/api/
 | Forms | react-hook-form + zod |
 | Charts (leaderboard sparklines) | Recharts |
 | Package manager | pnpm |
+
+> **M2 compatibility check (Phase-0 carry-forward)**: Before M2, verify Next.js 16
+> + Auth.js v5 (`next-auth@beta`) + shadcn CLI + Tailwind v4 work together on
+> React 19. Phase 0 only installs the Next.js 16 scaffold; it does NOT install
+> shadcn or wire Auth.js.
 
 ### Infra
 | Concern | Choice | Cost |
