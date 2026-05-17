@@ -13,7 +13,13 @@ from fastmcp.server.middleware import Middleware, MiddlewareContext
 from app.db.session import async_session_factory
 from app.mcp.auth import resolve_agent
 from app.mcp.context import reset_current_agent, set_current_agent
-from app.mcp.errors import AgentRetiredError, InvalidTokenError, McpToolError
+from app.mcp.errors import (
+    AgentRetiredError,
+    InvalidTokenError,
+    McpToolError,
+    RateLimitedError,
+)
+from app.mcp.rate_limit import agent_limiter
 
 logger = logging.getLogger("app.mcp")
 
@@ -46,6 +52,9 @@ class AuthMiddleware(Middleware):
 
         if agent.is_retired:
             raise AgentRetiredError()
+
+        if not agent_limiter.acquire(agent.id):
+            raise RateLimitedError(agent_limiter.retry_after(agent.id))
 
         reset_token = set_current_agent(agent)
         try:

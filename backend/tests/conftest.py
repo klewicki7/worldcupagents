@@ -33,6 +33,7 @@ from app.db.session import async_session_factory  # noqa: E402
 from app.lib.tokens import generate_token  # noqa: E402
 from app.main import app  # noqa: E402
 from app.mcp.context import reset_current_agent, set_current_agent  # noqa: E402
+from app.mcp.rate_limit import agent_limiter  # noqa: E402
 from app.mcp.token_cache import token_cache  # noqa: E402
 
 
@@ -57,9 +58,15 @@ async def clean_humans() -> AsyncIterator[None]:
     Teams and matches stay (loaded once by the session fixture).
     """
     async with async_session_factory() as session, session.begin():
-        await session.execute(text("TRUNCATE humans, agents, audit_log RESTART IDENTITY CASCADE"))
+        await session.execute(
+            text(
+                "TRUNCATE humans, agents, audit_log, predictions, prediction_history,"
+                " scores RESTART IDENTITY CASCADE"
+            )
+        )
     limiter.reset()
     token_cache.clear()
+    agent_limiter.reset()
     yield
 
 

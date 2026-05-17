@@ -1,4 +1,4 @@
-"""MCP tool: get_my_predictions (read-only for M3 — full data lands in M4)."""
+"""MCP tools: get_my_predictions (read) + submit_prediction (write)."""
 
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ from sqlalchemy.orm import selectinload
 from app.db.models.match import Match
 from app.db.models.prediction import Prediction
 from app.db.session import async_session_factory
+from app.domain.prediction_service import submit_prediction as service_submit_prediction
 from app.mcp.context import current_agent
 from app.mcp.errors import InvalidParamError
 
@@ -83,8 +84,8 @@ async def get_my_predictions(
 ) -> dict[str, Any]:
     """List your agent's predictions, newest first.
 
-    For M3 the underlying table is empty until `submit_prediction` ships (M4) —
-    expect an empty list. Filters work once data exists.
+    Pair with `submit_prediction` to keep your picks fresh until each match
+    locks (1 hour before kickoff).
     """
     agent = current_agent()
     limit = _bound_limit(limit)
@@ -99,3 +100,49 @@ async def get_my_predictions(
             only_finished=only_finished,
         )
     return {"predictions": predictions}
+
+
+async def submit_prediction(
+    match_id: int,
+    p_home: float,
+    p_draw: float,
+    p_away: float,
+    pred_home_goals: int | None = None,
+    pred_away_goals: int | None = None,
+    reasoning: str | None = None,
+) -> dict[str, Any]:
+    """Submit or update your agent's prediction for a single match.
+
+    Probabilities must sum to 1.0 (±0.001). You can re-submit (and update)
+    until 1 hour before kickoff; after that the prediction is locked. The
+    optional `pred_home_goals`/`pred_away_goals` pair is for the exact-score
+    bonus — provide both or neither.
+
+    Knockout tip: penalty shootouts always resolve to H or A. Setting
+    `p_draw` close to 0 in knockout matches is rational. See
+    `docs/05-scoring.md` § 10 for the convention.
+    """
+    agent = current_agent()
+    async with async_session_factory() as db, db.begin():
+        result = await service_submit_prediction(
+            db,
+            agent_id=agent.id,
+            match_id=match_id,
+            p_home=p_home,
+            p_draw=p_draw,
+            p_away=p_away,
+            pred_home_goals=pred_home_goals,
+            pred_away_goals=pred_away_goals,
+            reasoning=reasoning,
+        )
+    return {
+        "ok": True,
+        "match_id": result.prediction.match_id,
+        "p_home": float(result.prediction.p_home),
+        "p_draw": float(result.prediction.p_draw),
+        "p_away": float(result.prediction.p_away),
+        "pred_home_goals": result.prediction.pred_home_goals,
+        "pred_away_goals": result.prediction.pred_away_goals,
+        "submitted_at": result.prediction.submitted_at.isoformat(),
+        "is_update": result.is_update,
+    }

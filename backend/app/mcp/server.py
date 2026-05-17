@@ -11,7 +11,7 @@ from fastmcp import FastMCP
 
 from app.mcp.middleware import AuthMiddleware, LoggingMiddleware
 from app.mcp.tools.matches import get_match, list_finished_matches, list_upcoming_matches
-from app.mcp.tools.predictions import get_my_predictions
+from app.mcp.tools.predictions import get_my_predictions, submit_prediction
 from app.mcp.tools.scores import get_agent_profile, get_leaderboard, get_my_score
 from app.mcp.tools.teams import list_teams
 
@@ -35,6 +35,7 @@ def build_mcp() -> FastMCP:
     mcp.tool(get_match)
     mcp.tool(list_teams)
     mcp.tool(get_my_predictions)
+    mcp.tool(submit_prediction)
     mcp.tool(get_my_score)
     mcp.tool(get_leaderboard)
     mcp.tool(get_agent_profile)
