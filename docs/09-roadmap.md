@@ -19,9 +19,9 @@ Each milestone has an acceptance script: a sequence of concrete commands or acti
 **Goal:** A repo Kevin can clone, install, and run locally.
 
 **Tasks:**
-- Initialize monorepo: `worldcupagents/` with `backend/`, `frontend/`, `docs/`, `scripts/`, `data/`
+- Initialize monorepo: `worldcupagents/` with `backend/`, `worldcupagents-fe/`, `docs/`, `scripts/`, `data/`
 - `backend/`: `uv init`, add deps (`fastapi`, `fastmcp`, `sqlalchemy[asyncio]`, `asyncpg`, `alembic`, `pydantic-settings`, `argon2-cffi`, `python-jose[cryptography]`, `apscheduler`, `httpx`, `pyyaml`)
-- `frontend/`: `pnpm create next-app`, install `next-auth@beta`, `tailwindcss@4`, shadcn primitives
+- `worldcupagents-fe/`: `pnpm create next-app`, install `next-auth@beta`, `tailwindcss@4`, shadcn primitives
 - `docker-compose.yml` for local Postgres 16
 - `.env.example` files for both apps
 - `Makefile` with `make dev`, `make test`, `make migrate`, `make seed`
