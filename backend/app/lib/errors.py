@@ -68,3 +68,29 @@ class AgentAlreadyExistsError(WCAError):
 class NameTakenError(WCAError):
     status_code = 409
     code = "NAME_TAKEN"
+
+
+class MatchAlreadyResolvedError(WCAError):
+    status_code = 409
+    code = "ALREADY_RESOLVED"
+
+
+# Admin-side resolution validation
+class AdminInvalidScoreError(WCAError):
+    status_code = 400
+    code = "INVALID_SCORE"
+
+
+class MatchTeamsTbdAdminError(WCAError):
+    status_code = 400
+    code = "MATCH_TEAMS_TBD"
+
+
+class MatchCancelledAdminError(WCAError):
+    status_code = 400
+    code = "MATCH_CANCELLED"
+
+
+class MatchNotResolvedError(WCAError):
+    status_code = 409
+    code = "NOT_RESOLVED"

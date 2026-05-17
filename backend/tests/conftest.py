@@ -64,6 +64,14 @@ async def clean_humans() -> AsyncIterator[None]:
                 " scores RESTART IDENTITY CASCADE"
             )
         )
+        # Resolution/cancellation tests mutate match status — bring rows back to seed.
+        await session.execute(
+            text(
+                "UPDATE matches SET status='scheduled', home_goals=NULL,"
+                " away_goals=NULL, went_to_penalties=FALSE, penalties_home=NULL,"
+                " penalties_away=NULL, resolved_at=NULL"
+            )
+        )
     limiter.reset()
     token_cache.clear()
     agent_limiter.reset()
